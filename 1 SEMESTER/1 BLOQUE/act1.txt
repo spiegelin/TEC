@@ -1,0 +1,7 @@
+Inicio
+    precioKilo = 5
+    Preguntar ¿Cuánto pesa la bolsa en kilos?
+    Multiplicar precioKilo * peso
+
+    Imprimir resultado
+Fin
