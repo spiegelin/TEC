@@ -1,0 +1,15 @@
+Modelo_Especial 25 0
+NocheBuena 30 0
+Pacifico 19 0
+Modelo_Negra 25 0
+Barrilito 12 0
+Bohemia 20.5 0
+Zorra 99.35 0
+Tecate 15.5 0
+Stella_Artois 25 0
+Amstel_Ultra 19.2 0
+Michelob_Ultra 20 0
+Minerva_IPA 40 0
+Minerva_Viena 40 0
+Bichola 45 0
+Cheve 16 1
