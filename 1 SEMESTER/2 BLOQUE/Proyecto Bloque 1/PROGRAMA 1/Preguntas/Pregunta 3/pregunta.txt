@@ -1,0 +1,6 @@
+En todo dado, la suma de los puntos de cada dos caras 
+opuestas es siete. 
+
+Escribe en cada casilla de la tabla siguiente el número 
+de puntos de la cara inferior del dado correspondiente al 
+de la foto. 
