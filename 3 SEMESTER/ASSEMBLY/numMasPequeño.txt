@@ -1,0 +1,86 @@
+﻿/ De un array de 10 elementos, ver cual es el menor con memoria dinámica
+/ Diego Espejo A01638341
+
+Clear
+/ Ingreso de datos
+loop, 	Input
+		Store X
+        Load X
+        /Output
+        
+        StoreI DirMemoria
+        Load DirMemoria
+        Add one
+        Store DirMemoria
+        
+        Load N
+        Add one
+        Store N
+        
+        Load Counter
+        Subt one
+        Store Counter
+        
+        Skipcond 400
+        Jump loop
+
+/ Comparación 
+Load DirMemoria
+Subt one
+Store DirMemoria
+
+LoadI DirMemoria
+Store menor
+compareLoop, Load N
+        Subt one
+        Store N
+        
+       	Skipcond 800
+        Jump halt
+        
+		Load DirMemoria
+		Subt one
+        Store DirMemoria
+        
+        / Se accede al siguiente dato
+        LoadI DirMemoria
+		Store X   
+        
+        Load menor
+        Subt X
+        
+        / Si el menor es el siguiente lo guardas
+        Skipcond 000
+        Jump cambio
+        
+        / Sino no haces nada
+        Jump compareLoop
+        
+        
+cambio, Load X
+		Store menor
+        Jump compareLoop
+        
+halt, Load menor
+	Output
+	Halt       
+
+
+/ Variables
+one, DEC 1
+DirMemoria, ADR mediciones / Dirección en memoria de las mediciones
+N, DEC 0 / Número de datos
+X, DEC 0 / Variable temporal
+Counter, DEC 10 / Contador para terminar ciclo 1
+menor, DEC 0
+mediciones, DEC 0
+			DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+           

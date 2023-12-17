@@ -1,0 +1,55 @@
+/ Tarea 3: Programación en Ensamblador
+/ Programa 2 - Realiza un programa que tome la primera localidad de memoria 
+/ de una secuencia de 6 números, llenando las restantes cinco con en valor 
+/ de la anterior más uno.
+/ Diego Espejo A01638341
+/ Daniel Esparza A01637076
+/ Diego Cisneros A01643454
+
+Clear
+
+/ Inicialización de variables
+Input 
+Store secuencia
+Load secuencia
+StoreI 0 / Guarda el dato en la primera localidad de memoria (A000 -> -24576, está en complementos a 2)
+
+/ Bucle para llenar las restantes cinco localidades
+loop, 	LoadI I / Cargas y outputs el dato actual
+		Output 
+		Add one 
+        Store X / Se guarda el dato siguiente
+          
+        Load I
+        Add one / Se avanza una posición en la memoria
+        Store I
+        
+        Load X
+        StoreI I / Se guarda en la nueva posición el dato siguiente
+        	
+        Load Z
+        Subt one
+        Store Z
+		
+        / Sacado de los ejemplos de MARIE
+        Skipcond 400 
+        Jump loop
+   
+/ Output el último dato y terminar el programa
+halt,   Load I
+		Subt one
+        Store I
+        LoadI I
+		Output
+		Halt
+
+I, ADR 0 
+X, DEC 0
+Z, DEC 6
+one, DEC 1
+secuencia,	DEC 0
+			DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0

@@ -1,0 +1,60 @@
+﻿/ De un array de 10 elementos, ver cual es el mayor con memoria dinámica
+/ Diego Espejo A01638341
+
+Clear
+
+/ Comparación 
+LoadI DirMemoria
+Store mayor
+compareLoop, Load N
+        Subt one
+        Store N
+        
+       	Skipcond 800
+        Jump halt
+        
+		Load DirMemoria
+		Add one
+        Store DirMemoria
+        
+        / Se accede al siguiente dato
+        LoadI DirMemoria
+		Store X   
+        
+        Load mayor
+        Subt X
+        
+        / Si el mayor es el siguiente lo guardas
+        Skipcond 800
+        Jump cambio
+        
+        / Sino no haces nada
+        Jump compareLoop
+        
+        
+cambio, Load X
+		Store mayor
+        Jump compareLoop
+        
+halt, Load mayor
+	Output
+	Halt       
+
+/ Variables
+one, DEC 1
+DirMemoria, ADR estudiantes / Dirección en memoria de las mediciones
+N, DEC 10 / Número de datos
+X, DEC 0 / Variable temporal
+Counter, DEC 10 / Contador para terminar ciclo 1
+mayor, DEC 0
+estudiantes, DEC 10
+			DEC 2
+            DEC 4
+            DEC 3
+            DEC 7
+            DEC 6
+            DEC 5
+            DEC 9
+            DEC 11
+            DEC 8
+           

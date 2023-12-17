@@ -1,0 +1,121 @@
+﻿/ Evidencia 1: Reporte Técnico Final
+/ Tomando como referencia un sensor que entrega una lectura a través de un 
+/ bus paralelo a razón de 12 bits/ms, realiza lo siguiente:
+
+/ Un programa que después de guardar en memoria los datos leídos del sensor, 
+/ obtenga la media estadística de las mediciones almacenadas.
+/ Los datos del sensor son enviados uno a la vez por el mismo puerto de 
+/ entrada de datos.
+/ Finalmente, se debe de desarrollar un programa que entregue la media 
+/ estadística de 10 datos en el puerto de salida de MARIE.
+
+/ Diego Espejo A01638341
+/ Daniel Esparza A01637076
+/ Diego Cisneros A01643454
+
+Clear
+
+/ Obtención de Datos
+loop, 	Input
+		Store X
+        Load X
+        /Output
+        
+        StoreI DirMemoria
+        Load DirMemoria
+        Add one
+        Store DirMemoria
+        
+        Load N
+        Add one
+        Store N
+        
+        Load Counter
+        Subt one
+        Store Counter
+        
+        Skipcond 400
+        Jump loop
+
+/ Obtención de la media
+
+// Suma de los datos
+sumLoop, Load DirMemoria
+        Subt one
+        Store DirMemoria
+        
+        / Guardar el dato Actual en una variable de paso
+        LoadI DirMemoria
+		Store X
+        
+        / Sumarlo a la variable Suma
+        Load Suma
+        Add X
+        Store Suma
+         
+        / Decrementar el ciclo
+        Load Counter2
+        Subt one
+        Store Counter2
+        
+	    Skipcond 400
+        Jump sumLoop
+
+// División de los datos (N es el divisor y el dividiendo es Suma)
+Load Suma
+Store Residuo
+
+divLoop, Load Residuo
+		Subt N
+        Store Residuo
+        
+        Load Cociente
+        Add one
+        Store Cociente
+        
+        Load Residuo
+        Subt N
+        Skipcond 400
+        Skipcond 000
+        Jump divLoop
+
+
+/ Finalizar el programa
+halt,	Load Suma
+		Output
+        Load Cociente
+        Output
+        Load Residuo
+        Output
+		Halt
+
+/ Variables
+one, DEC 1
+DirMemoria, ADR mediciones / Dirección en memoria de las mediciones
+N, DEC 0 / Número de datos
+X, DEC 0 / Variable temporal
+Counter, DEC 20 / Contador para terminar ciclo 1
+Counter2, DEC 20 / Contador para terminar ciclo 2
+Suma, DEC 0
+Cociente, DEC 0
+Residuo, DEC 0
+mediciones, DEC 0
+			DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0

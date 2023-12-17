@@ -1,0 +1,49 @@
+/ Tarea 3: Programación en Ensamblador
+/ Programa 1 - Realiza un programa que calcule: Y=5*(A-B+C)
+/ Diego Espejo A01638341
+/ Daniel Esparza A01637076
+/ Diego Cisneros A01643454
+
+Clear
+
+/ Obtención de Datos
+Input
+Store A
+Input 
+Store B
+Input
+Store C
+
+/ Procedimiento para A - B + C
+Load A
+Subt B
+Add C
+Store Z
+
+/ Multiplicación
+loop,    Load Y
+         Add Z
+         Store Y
+
+         Load X
+         Subt one
+         Store X
+	
+	 / Sacado de los ejemplos de MARIE
+         Skipcond 400 
+         Jump loop / no -> Repetir
+         / si, salir
+
+/ Output el resultado y terminar el programa
+halt,	Load Y
+		Output	
+		Halt
+
+/ Variables
+A, DEC 0
+B, DEC 0
+C, DEC 0
+X, DEC 5
+Y, DEC 0
+Z, DEC 0
+one, DEC 1

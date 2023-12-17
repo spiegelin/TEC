@@ -1,0 +1,44 @@
+/ Tarea 3: Programación en Ensamblador
+/ Programa 3 - Realiza un programa que tome una serie de cinco localidades 
+/ de memoria, y a cada una sume un valor, la primera 1, la segunda 2, etc.
+/ Diego Espejo A01638341
+/ Daniel Esparza A01637076
+/ Diego Cisneros A01643454
+
+Clear
+
+/ Inicialización de variables
+Input
+Store X
+
+/ Bucle para llenar las localidades restantes
+loop,   Load X
+        Add Y
+        Store X
+        Load X
+        StoreI I
+        Output
+        
+        Load I
+        Add one
+        Store I
+
+        Load Y
+        Add one
+        Store Y
+
+        Load Z
+        Subt one
+        Store Z
+
+        Skipcond 400
+        Jump loop
+
+/ Terminar el programa
+halt, Halt
+
+/ Variables
+X, DEC 0
+Y, DEC 1
+Z, DEC 5
+one, DEC 1

@@ -1,0 +1,69 @@
+﻿/ 10 calificaciones, sumarle 10 y se guarden en la misma localidad
+/ Diego Espejo A01638341
+
+Clear
+
+/ Suma 
+addLoop, 	LoadI DirMemoria
+			Add ten
+            StoreI DirMemoria
+			
+            Load DirMemoria
+			Add one
+        	Store DirMemoria
+
+            Load N
+            Subt one
+            Store N
+
+            Skipcond 400
+            Jump addLoop
+      
+
+/ Output de los datos para confirmar
+Load N
+Add ten
+Store N
+
+Load DirMemoria
+Subt one
+Store DirMemoria
+outputLoop, LoadI DirMemoria
+			Output
+            
+            Load DirMemoria
+			Subt one
+        	Store DirMemoria
+            
+            Load N
+            Subt one
+            Store N
+
+            Skipcond 400
+            Jump outputLoop
+            
+          
+
+
+/ Finalizar el programa      
+halt, Halt       
+
+/ Variables
+one, DEC 1
+ten, DEC 10
+DirMemoria, ADR calificaciones / Dirección en memoria de las mediciones
+N, DEC 10 / Número de datos
+X, DEC 0 / Variable temporal
+Counter, DEC 10 / Contador para terminar ciclo 1
+calificacion, DEC 0
+calificaciones, DEC 10
+			DEC 9
+            DEC 8
+            DEC 7
+            DEC 6
+            DEC 5
+            DEC 4
+            DEC 3
+            DEC 2
+            DEC 1
+           
