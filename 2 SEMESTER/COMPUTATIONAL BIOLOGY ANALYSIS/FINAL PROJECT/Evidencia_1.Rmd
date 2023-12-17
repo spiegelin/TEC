@@ -1,0 +1,419 @@
+---
+title: "Evidencia 1 | Análisis inicial"
+author: "Diego Espejo, Daniel Esparza & Pablo Heredia"
+date: "2023-04-26"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r}
+library("ggplot2")
+library("tidyverse")
+library("svglite")
+library("seqinr")
+library("stringr")
+library("patchwork")
+```
+
+1.  Obtén las secuencias de las variantes de SARS-CoV-2 desde el [**NCBI**](https://www.ncbi.nlm.nih.gov/)
+
+```{r}
+omicron <- read.fasta("Fasta_Variantes/Copia de omicron.fasta")[[1]]
+substr(paste(omicron, collapse=''),1,100)
+
+southAfrica <- read.fasta("Fasta_Variantes/Copia de sequence (south africa).fasta")[[1]]
+substr(paste(southAfrica, collapse=''),1,100)
+
+america <- read.fasta("Fasta_Variantes/Copia de sequences (America).fasta")[[1]]
+substr(paste(america, collapse=''),1,100)
+
+brazil <- read.fasta("Fasta_Variantes/Copia de sequences (brazil).fasta")[[1]]
+substr(paste(brazil, collapse=''),1,100)
+
+colombia <- read.fasta("Fasta_Variantes/Copia de sequences (colombia).fasta")[[1]]
+substr(paste(colombia, collapse=''),1,100)
+
+france <- read.fasta("Fasta_Variantes/Copia de sequences (france).fasta")[[1]]
+substr(paste(france, collapse=''),1,100)
+
+india <- read.fasta("Fasta_Variantes/Copia de sequences (india).fasta")[[1]]
+substr(paste(india, collapse=''),1,100)
+
+italy <- read.fasta("Fasta_Variantes/Copia de sequences (italy).fasta")[[1]]
+substr(paste(italy, collapse=''),1,100)
+
+mexico <- read.fasta("Fasta_Variantes/Copia de sequences (mexico).fasta")[[1]]
+substr(paste(mexico, collapse=''),1,100)
+
+peru <- read.fasta("Fasta_Variantes/Copia de sequences (peru).fasta")[[1]]
+substr(paste(peru, collapse=''),1,100)
+
+roma <- read.fasta("Fasta_Variantes/Copia de sequences (roma).fasta")[[1]]
+substr(paste(roma, collapse=''),1,100)
+
+russia <- read.fasta("Fasta_Variantes/Copia de sequences (russia).fasta")[[1]]
+substr(paste(russia, collapse=''),1,100)
+
+spain <- read.fasta("Fasta_Variantes/Copia de sequences (spain).fasta")[[1]]
+substr(paste(spain, collapse=''),1,100)
+
+uk <- read.fasta("Fasta_Variantes/Copia de sequences (uk).fasta")[[1]]
+substr(paste(uk, collapse=''),1,100)
+```
+
+2.  Calcula la longitud de las secuencias de cada variante.
+
+    Omicron:
+
+    ```{r}
+    length(omicron)
+    ```
+
+    Sudáfrica:
+
+    ```{r}
+    length(southAfrica)
+    ```
+
+    América:
+
+    ```{r}
+    length(america)
+    ```
+
+    Brasil:
+
+    ```{r}
+    length(brazil)
+    ```
+
+    Colombia:
+
+    ```{r}
+    length(colombia)
+    ```
+
+    Francia:
+
+    ```{r}
+    length(france)
+    ```
+
+    India:
+
+    ```{r}
+    length(india)
+    ```
+
+    Italy:
+
+    ```{r}
+    length(italy)
+    ```
+
+    México:
+
+    ```{r}
+    length(mexico)
+    ```
+
+    Perú:
+
+    ```{r}
+    length(peru)
+    ```
+
+    Roma:
+
+    ```{r}
+    length(roma)
+    ```
+
+    Rusia:
+
+    ```{r}
+    length(russia)
+    ```
+
+    España:
+
+    ```{r}
+    length(spain)
+    ```
+
+    Reino Unido:
+
+    ```{r}
+    length(uk)
+    ```
+
+<!-- -->
+
+3.  Crea una gráfica donde compares las bases de ADN que componen a cada una de las variantes del virus
+
+```{r}
+basesOmicron <- as.data.frame((count(omicron, 1) / length(omicron) * 100))
+basesSouthAfrica <- as.data.frame((count(southAfrica, 1) / length(southAfrica) * 100))
+basesAmerica <- as.data.frame((count(america, 1) / length(america) * 100))
+basesBrazil <- as.data.frame((count(brazil, 1) / length(brazil) * 100))
+basesColombia <- as.data.frame((count(colombia, 1) / length(colombia) * 100))
+basesFrance <- as.data.frame((count(france, 1) / length(france) * 100))
+basesIndia <- as.data.frame((count(india, 1) / length(india) * 100))
+basesItaly <- as.data.frame((count(italy, 1) / length(italy) * 100))
+basesMexico <- as.data.frame((count(mexico, 1) / length(mexico) * 100))
+basesPeru <- as.data.frame((count(peru, 1) / length(peru) * 100))
+basesRoma <- as.data.frame((count(roma, 1) / length(roma) * 100))
+basesRussia <- as.data.frame((count(russia, 1) / length(russia) * 100))
+basesSpain <- as.data.frame((count(spain, 1) / length(spain) * 100))
+basesUK <- as.data.frame((count(uk, 1) / length(uk) * 100))
+
+# Combinar dataFrames
+bases <- rbind(basesOmicron, basesSouthAfrica, basesAmerica, basesBrazil, basesColombia, basesFrance, basesIndia, basesItaly, basesMexico, basesPeru, basesRoma, basesRussia, basesSpain, basesUK)
+# Agregar columna de nombre del virus, se usa $ para  el nombre de la columna del df, y se usa rep() para repetirse el número de filas
+bases$virus <- rep(c("Omicron", "Sudáfrica", "América", "Brasil", "Colombia", "Francia", "India", "Italia", "México", "Perú", "Roma", "Rusia", "España", "Reino Unido"), c(nrow(basesOmicron), nrow(basesSouthAfrica), nrow(basesAmerica), nrow(basesBrazil), nrow(basesColombia), nrow(basesFrance), nrow(basesIndia), nrow(basesItaly), nrow(basesMexico), nrow(basesPeru), nrow(basesRoma), nrow(basesRussia), nrow(basesSpain), nrow(basesUK)))
+bases
+# Graficar
+ggplot(bases, aes(x = Var1, y = Freq, fill = Var1, group = virus)) + 
+  geom_bar(stat = "identity") +
+  xlab("Bases de ADN") +
+  ylab("Frecuencia %") +
+  ggtitle("Comparación de las bases de ADN de cada virus") +
+  scale_fill_manual(values = c("red", "orange", "darkgreen", "darkblue"), name = "") +
+  facet_wrap(~virus)
+
+# Gráfico para cada base según el país
+# Reorganizar el DataFrame
+bases <- bases %>%
+  pivot_wider(names_from = Var1, values_from = Freq, values_fill = 0) %>% 
+  select(virus, a, c, g, t)
+
+# Ordenar por virus
+bases <- bases[order(bases$virus),]
+
+a <- ggplot(bases, aes(x = virus, y = a, fill = virus)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("red", "red","red", "red","red", "red","red", "red","red", "red","red", "red","red","red", "red")) +
+  xlab("Variantes") +
+  ylab("Frecuencia %") +
+  ggtitle("Comparación de Adenina") + 
+  guides(fill = FALSE)  + # Desactiva la leyenda 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+g <- ggplot(bases, aes(x = virus, y = g, fill = virus)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("orange", "orange","orange", "orange","orange", "orange","orange", "orange","orange", "orange","orange", "orange","orange", "orange","orange")) + 
+  xlab("Variantes") +
+  ylab("Frecuencia %") +
+  ggtitle("Comparación de Guanina") + 
+  guides(fill = FALSE)  + # Desactiva la leyenda 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+c <- ggplot(bases, aes(x = virus, y = c, fill = virus)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("darkgreen", "darkgreen","darkgreen", "darkgreen","darkgreen", "darkgreen","darkgreen", "darkgreen","darkgreen", "darkgreen","darkgreen", "darkgreen","darkgreen", "darkgreen","darkgreen")) +
+  xlab("Variantes") +
+  ylab("Frecuencia %") +
+  ggtitle("Comparación de Citosina") + 
+  guides(fill = FALSE)  + # Desactiva la leyenda 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+t <- ggplot(bases, aes(x = virus, y = t, fill = virus)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("darkblue", "darkblue","darkblue", "darkblue","darkblue", "darkblue","darkblue", "darkblue","darkblue", "darkblue","darkblue", "darkblue","darkblue", "darkblue","darkblue")) +
+  xlab("Variantes") +
+  ylab("Frecuencia %") +
+  ggtitle("Comparación de Timina") + 
+  guides(fill = FALSE)  + # Desactiva la leyenda 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+a + g + c + t
+```
+
+4.  ¿Cuál es el %GC de cada variante?
+
+    Omicron:
+
+    ```{r}
+    (count(omicron, 2)[10] / length(omicron) * 100)
+    ```
+
+    Sudáfrica:
+
+    ```{r}
+    (count(southAfrica, 2)[10] / length(southAfrica) * 100)
+    ```
+
+    América:
+
+    ```{r}
+    (count(america, 2)[10] / length(america) * 100)
+    ```
+
+    Brasil:
+
+    ```{r}
+    (count(brazil, 2)[10] / length(brazil) * 100)
+    ```
+
+    Colombia:
+
+    ```{r}
+    (count(colombia, 2)[10] / length(colombia) * 100)
+    ```
+
+    Francia:
+
+    ```{r}
+    (count(france, 2)[10] / length(france) * 100)
+    ```
+
+    India:
+
+    ```{r}
+    (count(india, 2)[10] / length(india) * 100)
+    ```
+
+    Italy:
+
+    ```{r}
+    (count(italy, 2)[10] / length(italy) * 100)
+    ```
+
+    México:
+
+    ```{r}
+    (count(mexico, 2)[10] / length(mexico) * 100)
+    ```
+
+    Perú:
+
+    ```{r}
+    (count(peru, 2)[10] / length(peru) * 100)
+    ```
+
+    Roma:
+
+    ```{r}
+    (count(roma, 2)[10] / length(roma) * 100)
+    ```
+
+    Rusia:
+
+    ```{r}
+    (count(russia, 2)[10] / length(russia) * 100)
+    ```
+
+    España:
+
+    ```{r}
+    (count(spain, 2)[10] / length(spain) * 100)
+    ```
+
+    Reino Unido:
+
+    ```{r}
+    (count(uk, 2)[10] / length(uk) * 100)
+    ```
+
+5.  Crea las secuencias contrasentido de cada variante
+
+    Función para la inversa:
+
+    ```{r}
+    inverseStrand <- function(s) {
+      return(substr(paste(rev(strsplit(paste(s, collapse=''), NULL)[[1]]), collapse=''),1,100))
+    }
+    ```
+
+    Omicron:
+
+    ```{r}
+    inverseStrand(omicron)
+    ```
+
+    Sudáfrica:
+
+    ```{r}
+    inverseStrand(southAfrica)
+    ```
+
+    América:
+
+    ```{r}
+    inverseStrand(america)
+    ```
+
+    Brasil:
+
+    ```{r}
+    inverseStrand(brazil)
+    ```
+
+    Colombia:
+
+    ```{r}
+    inverseStrand(colombia)
+    ```
+
+    Francia:
+
+    ```{r}
+    inverseStrand(france)
+    ```
+
+    India:
+
+    ```{r}
+    inverseStrand(india)
+    ```
+
+    Italy:
+
+    ```{r}
+    inverseStrand(italy)
+    ```
+
+    México:
+
+    ```{r}
+    inverseStrand(mexico)
+    ```
+
+    Perú:
+
+    ```{r}
+    inverseStrand(peru)
+    ```
+
+    Roma:
+
+    ```{r}
+    inverseStrand(roma)
+    ```
+
+    Rusia:
+
+    ```{r}
+    inverseStrand(russia)
+    ```
+
+    España:
+
+    ```{r}
+    inverseStrand(spain)
+    ```
+
+    Reino Unido:
+
+    ```{r}
+    inverseStrand(uk)
+    ```
+
+<!-- -->
+
+6.  Agrega una interpretación escrita de las gráficas que integras
+
+    En las gráficas que tenemos, podemos observar que la composición de las bases de las variantes es muy similar a lo largo de ellas. Hay algunas que son las que más pueden variar, como lo es la italiana y la romana. En el caso de la italiana, podemos ver un porcentaje gc menor al promedio, siendo de 3.4 en lugar de valores de 3.8. De igual manera, en la variante de roma podemos ver un disparatado 6.5 de porcentaje. El contenido de GC puede afectar la estabilidad y las propiedades físicas del ADN, así como su capacidad para interactuar con otras moléculas. Por ejemplo, las secuencias con un alto contenido de GC pueden tener una mayor estabilidad de la doble hélice y ser más resistentes a la desnaturalización, mientras que las secuencias con un bajo contenido de GC pueden tener una mayor flexibilidad y ser más susceptibles a la desnaturalización.
+
+    Por otro lado, en la primera gráfica se puede observar que en prácticamente todas las variantes, la base que más se repite es la Timina, seguida de la Adenina, Guanina y Citosina. Y en la segunda, hay una comparación de meramente el porcentaje de cada base por variante, obteniendo con esto resultados impactantes, como que Roma es la que en comparación tiene menos Adenina, pero curiosamente es la que tiene más Guanina y Citosina.

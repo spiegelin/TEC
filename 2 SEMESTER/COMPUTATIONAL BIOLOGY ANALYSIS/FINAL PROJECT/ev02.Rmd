@@ -1,0 +1,277 @@
+---
+title: "Evidencia_2"
+author: "Erick Alejandro Ramírez González A01637436 & Ana Camila Jiménez Mendoza A01174422"
+output: html_document
+date: "2023-05-03"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+#Link video
+
+https://youtu.be/LEh8MpabMuU
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Análisis de 20 secuencias de ADN de los países más infectados
+
+```{r}
+setwd("/Users/cam/Downloads/Evidencia2")
+
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("Biostrings")
+BiocManager::install("ggtree")
+BiocManager::install("DECIPHER")
+BiocManager::install("ggmsa")
+BiocManager::install("adegenet")
+BiocManager::install("viridis")
+
+
+library(ape)
+library(phytools)
+library(Biostrings)
+library(seqinr)
+library(adegenet)
+library(ggtree)
+library(DECIPHER)
+library(viridis)
+library(ggplot2)
+```
+
+# Países y sus respectivas variantes: 
+## "OP848479" Australia - "OQ520264" Austria - "OQ242023" Belgica - "OQ852746" Brazil - "OQ781006" Canada - "OQ690904" Chile - "OL752440" Czechia - "OQ894089" Francia
+## "OX464022" Alemania - "OQ748861" Italia - "BS007312" Japon - "OQ690571" Mexico - "OP729239" Nueva Zelanda - "OV033566" Polonia - "OQ718959" Rusia - "OP763667" Corea del Sur
+## "OF405494" Covid Original -  "OQ194011" Taiwan - "OX490409" Reino Unido -"OQ918968" Estados Unidos
+
+```{r}
+virus <- c(  "OP848479", "OQ520264", "OQ242023", "OQ852746", "OQ781006", "OQ690904", "OL752440", "OQ894089", "OX464022", "OQ748861", "BS007312", "OQ690571", "OP729239", "OV033566", "OQ718959", "OP763667", "OF405494", "OQ194011", "OX490409", "OQ918968")
+
+```
+
+#Secuencias 
+
+```{r}
+virus_sequences <- read.GenBank(virus)
+
+```
+
+#tamaño de las secuencias
+
+```{r}
+print("Tamaño de la variante Australia")
+length(virus_sequences[[1]])
+print("Tamaño de la variante Austria ")
+length(virus_sequences[[2]])
+print("Tamaño de la variante Belgica")
+length(virus_sequences[[3]])
+print("Tamaño de la variante Brazil")
+length(virus_sequences[[4]])
+print("Tamaño de la variante Canada")
+length(virus_sequences[[5]])
+print("Tamaño de la variante Chile")
+length(virus_sequences[[6]])
+print("Tamaño de la variante Czechia")
+length(virus_sequences[[7]])
+print("Tamaño de la variante Francia")
+length(virus_sequences[[8]])
+print("Tamaño de la variante Alemania")
+length(virus_sequences[[9]])
+print("Tamaño de la variante Italia")
+length(virus_sequences[[10]])
+print("Tamaño de la variante Japon")
+length(virus_sequences[[11]])
+print("Tamaño de la variante Mexico")
+length(virus_sequences[[12]])
+print("Tamaño de la variante Nueva Zelanda")
+length(virus_sequences[[13]])
+print("Tamaño de la variante Polonia")
+length(virus_sequences[[14]])
+print("Tamaño de la variante Rusia")
+length(virus_sequences[[15]])
+print("Tamaño de la variante Corea del Sur")
+length(virus_sequences[[16]])
+print("Tamaño de la variante Covid Original")
+length(virus_sequences[[17]])
+print("Tamaño de la variante Taiwan")
+length(virus_sequences[[18]])
+print("Tamaño de la variante Reino Unido")
+length(virus_sequences[[19]])
+print("Tamaño de la variante Estados Unidos")
+length(virus_sequences[[20]])
+```
+
+# Bases de ADN
+
+```{r}
+Australia<-read.fasta("Australia.fasta")
+Austria<-read.fasta("Austria.fasta")
+Belgium<-read.fasta("Belgium.fasta")
+Brazil<-read.fasta("Brazil.fasta")
+canada<-read.fasta("Canada.fasta")
+chile<-read.fasta("Chile.fasta")
+Czechia<-read.fasta("Czechia.fasta")
+Francia<-read.fasta("France.fasta")
+Alemania<-read.fasta("Germany.fasta")
+Italia<-read.fasta("Italy.fasta")
+Japon<-read.fasta("Japan.fasta")
+Mexico<-read.fasta("Mexico.fasta")
+NuevaZel<-read.fasta("New_Zealand.fasta")
+Polonia<-read.fasta("Poland.fasta")
+Rusia<-read.fasta("Russia.fasta")
+SARS<-read.fasta("SARSVirus.fasta")
+CoreaSur<-read.fasta("South_Korea.fasta")
+Taiwan<-read.fasta("Taiwan.fasta")
+UK<-read.fasta("UK.fasta")
+USA<-read.fasta("USA.fasta")
+
+
+compara<-function(seq1,seq2,seq3,seq4,seq5,seq6,seq7,seq8,seq9,seq10,seq11,seq12,seq13,seq14,seq15,seq16,seq17,seq18,seq19,seq20){
+  par(mfrow=c(1,5))
+  barplot(table(seq1),col=1:4, main="Australia")
+  barplot(table(seq2),col=1:4, main="Austria")
+  barplot(table(seq3),col=1:4, main="Belgica")
+  barplot(table(seq4),col=1:4, main="Brazil")
+  barplot(table(seq5),col=1:4, main="Canada")
+  barplot(table(seq6),col=1:4, main="Chile")
+  barplot(table(seq7),col=1:4, main="Czechia")
+  barplot(table(seq8),col=1:4, main="Francia")
+  barplot(table(seq9),col=1:4, main="Alemania")
+  barplot(table(seq10),col=1:4, main="Italia")
+  barplot(table(seq11),col=1:4, main="Japon")
+  barplot(table(seq12),col=1:4, main="Mexico")
+  barplot(table(seq13),col=1:4, main="Nueva Zelanda")
+  barplot(table(seq14),col=1:4, main="Polonia")
+  barplot(table(seq15),col=1:4, main="Rusia")
+  barplot(table(seq16),col=1:4, main="SARS Covid")
+  barplot(table(seq17),col=1:4, main="Corea del Sur")
+  barplot(table(seq18),col=1:4, main="Taiwan")
+  barplot(table(seq19),col=1:4, main="Reino Unido")
+  barplot(table(seq20),col=1:4, main="Estados Unidos")
+
+
+}
+compara(Australia,Austria,Belgium,Brazil,canada,chile,Czechia,Francia,Alemania,Italia,Japon,Mexico,NuevaZel,Polonia,Rusia,SARS,CoreaSur,Taiwan,UK,USA)
+```
+
+## Atributos de las secuencias
+
+```{r}
+attributes(virus_sequences)
+names(virus_sequences)
+attr(virus_sequences, "species")
+```
+
+```{r}
+write.dna(virus_sequences,  file ="virus_seqs.fasta", format = "fasta", append =
+FALSE, nbcol = 6, colsep = " ", colw = 10)
+```
+
+```{r}
+virus_seq_no_alineadas <- readDNAStringSet("virus_seqs.fasta", format = "fasta")
+virus_seq_no_alineadas
+```
+
+### Alineamiento de las secuencias 
+
+```{r}
+virus_seq_no_alineadas <- OrientNucleotides(virus_seq_no_alineadas)
+virus_align_seqs <- AlignSeqs(virus_seq_no_alineadas)
+```
+
+#Alineamiento de las secuencias:
+
+```{r}
+BrowseSeqs(virus_align_seqs, highlight=0)
+```
+
+```{r}
+writeXStringSet(virus_align_seqs, file = "virus_align_seq.fasta")
+```
+
+```{r}
+virus_aligned <- read.alignment("virus_align_seq.fasta", format = "fasta") 
+virus_aligned
+```
+
+##Distancia:
+
+```{r}
+distance_matrix <- dist.alignment(virus_aligned, matrix = "similarity")
+```
+
+##las sombreadas de un gris más oscuro son de una mayor distancia
+
+```{r}
+
+temp <- as.data.frame(as.matrix(distance_matrix))
+temp
+table.paint(temp, cleg=0, clabel.row=.20, clabel.col=.20) + scale_color_viridis()
+
+```
+
+##arbol
+
+```{r}
+virus_filogenetico <- nj(distance_matrix)
+class(virus_filogenetico)
+
+```
+
+## arbol graficado
+
+```{r}
+virus_plot_filogenetico <- ladderize(virus_filogenetico)
+plot(virus_plot_filogenetico)
+title("SARS_COV2")
+
+```
+
+##Gráfica ggtree
+
+```{r}
+ggtree(virus_plot_filogenetico)
+ggtree(virus_plot_filogenetico, layout="slanted") 
+ggtree(virus_plot_filogenetico, layout="circular")
+ggtree(virus_plot_filogenetico, layout="fan", open.angle=120)
+ggtree(virus_plot_filogenetico, layout="equal_angle")
+ggtree(virus_plot_filogenetico, branch.length='none')
+ggtree(virus_plot_filogenetico, branch.length='none', layout='circular')
+ggtree(virus_plot_filogenetico ) + geom_tiplab()
+
+```
+
+#Alineamiento de las secuencias:
+
+```{r}
+
+library(ggmsa)
+ggmsa(virus_align_seqs, 320, 360, color = "Chemistry_AA")
+
+
+```
+
+#Combinación  del árbol filogenético y el alineamiento de las secuencias:
+
+```{r}
+plot_virus <- ggtree(virus_plot_filogenetico) + geom_tiplab()
+plot_virus
+
+```
+
+```{r}
+citation("dplyr")
+citation("ggplot2")
+```
+
+## Referencias
+
+*NCBI Virus*. (n.d.).
+<https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusLineage_ss=Severe%20acute%20respiratory%20syndrome%20coronavirus%202,%20taxid:2697049&utm_source=nuccore&utm_medium=referral>
+
+Reina J. (2020). El SARS-CoV-2, una nueva zoonosis pandémica que amenaza al mundo [The SARS-CoV-2, a new pandemic zoonosis that threatens the world]. Vacunas, 21(1), 17–22. https://doi.org/10.1016/j.vacun.2020.03.001
+
+
