@@ -1,0 +1,57 @@
+/ Avance 2 de Situacion Problema
+/ 1) Tomando como referencia un sensor que entrega una lectura a través de un
+/ bus paralelo a razón de 12 bits/ms, realizar un programa dentro del entorno 
+/ de MARIE, que almacene las primeras 20 mediciones en memoria.
+/ 2) Determinar el tamaño del programa para leer el sensor y almacenar la 
+/ información en memoria.
+
+/ Diego Espejo A01638341
+/ Daniel Esparza A01637076
+/ Diego Cisneros A01643454
+Clear
+/ 1)
+loop, 	Input
+		Store X
+        Load X
+        Output
+        StoreI DirMemoria
+        Load DirMemoria
+        Add one
+        Store DirMemoria
+        Load Counter
+        Subt one
+        Store Counter
+        Skipcond 400
+        Jump loop
+halt,	Halt
+
+/ 2) 
+/Tamaño del programa = 40 palabras * 16 bits/palabra = 640 bits
+/Total de palabras = 1 (variables) + 1 (DirMemoria) + 1 (X) + 1 (Counter) + 1 (one) + 20 (mediciones) + 15 (instrucciones) = 40 palabras de memoria
+/Por lo tanto, el tamaño del programa para leer el sensor y almacenar la información en memoria es de 640 bits
+
+/ Variables
+DirMemoria, ADR mediciones
+X, DEC 0
+Counter, DEC 20
+one, DEC 1
+mediciones, DEC 0
+			DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
+            DEC 0
