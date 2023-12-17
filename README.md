@@ -13,7 +13,7 @@ This repository contains a collection of activities and projects completed durin
 
 ## About
 
-I am a Computer Science student at Tecnológico de Monterrey, and this repository serves as a portfolio of my academic journey. Here, you will find a variety of projects and activities that demonstrate my skills and growth in the field of computer science.
+I am a Computer Science student at Tecnológico de Monterrey, and this repository serves as a portfolio of my academic journey. Here, you will find a variety of projects and activities that demonstrate my skills and growth.
 
 
 ## 1 Semester
