@@ -1,4 +1,0 @@
-El carpintero tiene en el almacén 26 tablas largas de madera, 33 tablas cortas de
-madera, 200 ganchos pequeños, 20 ganchos grandes y 510 tornillos.
-
-¿Cuántas estanterías completas puede construir este carpintero?
