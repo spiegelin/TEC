@@ -1,1 +1,0 @@
-Folder para colocar imagenes del repositorio
