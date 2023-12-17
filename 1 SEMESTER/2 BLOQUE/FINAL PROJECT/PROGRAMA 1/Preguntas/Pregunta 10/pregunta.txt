@@ -1,0 +1,9 @@
+Pedro tiene que tomar 80 mg de un fármaco 
+para controlar su presión sanguínea. 
+El siguiente gráfico muestra la cantidad 
+inicial del fármaco y la cantidad que permanece 
+activa en la sangre de Pedro después de uno, dos, 
+tres y cuatro días. 
+
+¿Qué cantidad de fármaco permanece activa al final 
+del primer día? 

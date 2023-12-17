@@ -1,0 +1,9 @@
+La foto muestra las huellas de un hombre caminando. La longitud del paso P es la
+distancia entre los extremos posteriores de dos huellas consecutivas.
+Para los hombres, la fórmula n/p = 140 da una relación aproximada entre n y P donde:
+
+n = número de pasos por minuto, y
+P = longitud del paso en metros. 
+
+Si se aplica la fórmula a la manera de caminar de Enrique y éste da 70 pasos por
+minuto, ¿cuál es la longitud del paso de Enrique?

@@ -1,0 +1,3 @@
+Identifica a los corredores que ganaron las medallas de oro, plata y bronce en esta
+carrera. Completa la tabla siguiente con su número de calle, su tiempo de reacción y
+su tiempo final. 
