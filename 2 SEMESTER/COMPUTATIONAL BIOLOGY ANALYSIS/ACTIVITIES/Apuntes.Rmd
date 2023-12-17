@@ -1,0 +1,130 @@
+---
+title: "Notas R"
+author: "Diego Espejo"
+date: "2023-03-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introducción a R
+
+r = 15
+
+?mean() = help("mean")
+
+# Ver archivos
+
+list.files()
+
+?setwd -\> poner la ruta
+
+getwd() -\> saber donde está la ruta
+
+install.packages(),
+
+# Coerción
+
+as.integer() -\> Entero
+
+as.numeric("cinco") -\> Incorrecto
+
+as.factor(5) as.factor("cinco")
+
+as.numeric(TRUE) -\> 1 as.numeric(FALSE) -\> 0
+
+as.null(FALSE/4/"") -\> NULL
+
+# Operadores aritméticos
+
+-   SUMA
+-   RESTA
+-   MULTIPLICACIÓN / DIVISIÓN \^ POTENCIA %% DIVISIÓN ENTERA
+
+# Operadores
+
+5 \< 3 FALSE
+
+5 \<= 3 FALSE
+
+5 \> 3 TRUE
+
+5 \>= 3 TRUE
+
+5 == 3 FALSE
+
+5 != 3 TRUE
+
+# ASCII
+
+"casa" \> ""
+
+# Operadores lógicos
+
+x \| y
+
+x & y
+
+!x
+
+is TRUE(x)
+
+# Asignar Variables
+
+estatura \<- 1.73
+
+peso \<- 83
+
+# Vectores
+
+# crea vector
+
+miVector \<- c(1,2,3,5,8), La c se refiere a concatenate
+
+miVector \<- 1:10
+
+# Agregar datos
+
+miVector \<- (mivector, 9)
+
+miVector[2:4]
+
+edades[c(2,4)]
+
+# Matrices
+
+matrix(1:12, nrow = 3, ncol = 4)
+
+# Data Frames
+
+Pueden contener diferentes tipos
+
+# Listas
+
+mi_lista \<- list()
+
+# Importar y exportar datos
+
+Gané como mil puntos (2.4, 8 participaciones)
+
+download.file()
+
+read.table(file, header = FALSE, sep = ",", quote = "")
+
+header
+
+sep
+
+col.names
+
+stringsAsFactors
+
+head(dataFrame) -\> Te indica las primeras líneas del dataFrame
+
+# Ejemplos de funciones
+
+Desviación estándar
+
+suma \<- function(x,y) {

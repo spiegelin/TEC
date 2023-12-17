@@ -1,0 +1,149 @@
+---
+title: "Analogía computadora y la célula"
+author: "Diego Espejo & Daniel Esparza"
+date: "2023-04-11"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+## Funciones de organelos:
+
+[Núcleo]{.underline}
+
+:   El núcleo es una estructura redondeada presente en el centro de la célula eucariota que contiene el material genético de la célula en forma de cromosomas. La principal función del núcleo es controlar y regular la expresión de los genes de la célula.
+
+[Membrana nuclear]{.underline}
+
+:   La membrana nuclear es una estructura de doble capa lipídica que rodea y protege el núcleo de la célula eucariota. La membrana nuclear controla el intercambio de sustancias entre el núcleo y el citoplasma de la célula.
+
+[Nucleolo]{.underline}
+
+:   El nucleolo es una estructura pequeña y redondeada presente en el núcleo de la célula eucariota que se encarga de la síntesis y ensamblaje de los componentes ribosomales.
+
+[Ribosomas]{.underline}
+
+:   Los ribosomas son estructuras celulares encargadas de la síntesis de proteínas a partir de la información genética presente en el ARN mensajero (ARNm). Los ribosomas pueden encontrarse libres en el citoplasma o adheridos al retículo endoplásmico.
+
+[Retículo endoplásmico]{.underline}
+
+:   El retículo endoplásmico es un orgánulo formado por una red de membranas interconectadas que se extiende por todo el citoplasma de la célula. El retículo endoplásmico se divide en dos tipos: el retículo endoplásmico rugoso, que contiene ribosomas adheridos a su superficie, y el retículo endoplásmico liso, que no tiene ribosomas y está especializado en la síntesis de lípidos y la detoxificación de sustancias nocivas.
+
+[Pared celular/membrana celular]{.underline}
+
+:   La pared celular es una estructura rígida presente en las células de las plantas, hongos y algunas bacterias que se encarga de proporcionar protección y sostén a la célula. La membrana celular es una estructura de doble capa lipídica presente en todas las células que se encarga de regular el intercambio de sustancias entre el interior y el exterior de la célula.
+
+[Citoplasma]{.underline}
+
+:   El citoplasma es el espacio que se encuentra entre el núcleo y la membrana celular de la célula eucariota y que contiene numerosos orgánulos y estructuras celulares.
+
+[Citoesqueleto]{.underline}
+
+:   El citoesqueleto es un conjunto de filamentos proteicos que se extienden por todo el citoplasma de la célula eucariota y que se encargan de proporcionar soporte estructural a la célula, así como de permitir la movilidad celular y la división celular.
+
+[Mitocondria]{.underline}
+
+:   Las mitocondrias son orgánulos encargados de la producción de energía en la célula. Las mitocondrias contienen su propio material genético y se encargan de la síntesis de ATP, la principal fuente de energía de la célula.
+
+[Aparato de Golgi]{.underline}
+
+:   El aparato de Golgi es un orgánulo formado por una serie de sacos membranosos apilados que se encargan de modificar, clasificar y empacar las proteínas y lípidos sintetizados por la célula.
+
+[Membrana nuclear]{.underline}
+
+:   La membrana nuclear es una estructura de doble capa lipídica que rodea y protege el núcleo de la célula eucariota. La membrana nuclear controla el intercambio de sustancias entre el núcleo y el citoplasma de la célula.
+
+[Nucleolo:]{.underline}
+
+:   El nucleolo es una estructura pequeña y redondeada presente en el núcleo de la célula eucariota que se encarga de la síntesis y ensamblaje de los componentes ribosomales.
+
+[Ribosomas]{.underline}
+
+:   Los ribosomas son estructuras celulares encargadas de la síntesis de proteínas a partir de la información genética presente en el ARN mensajero (ARNm). Los ribosomas pueden encontrarse libres en el citoplasma o adheridos al retículo endoplásmico.
+
+[Retículo endoplásmico]{.underline}
+
+:   El retículo endoplásmico es un orgánulo formado por una red de membranas interconectadas que se extiende por todo el citoplasma de la célula. El retículo endoplásmico se divide en dos tipos: el retículo endoplásmico rugoso, que contiene ribosomas adheridos a su superficie, y el retículo endoplásmico liso, que no tiene ribosomas y está especializado en la síntesis de lípidos y la detoxificación de sustancias nocivas.
+
+[Pared celular/membrana celular]{.underline}
+
+:   La pared celular es una estructura rígida presente en las células de las plantas, hongos y algunas bacterias que se encarga de proporcionar protección y sostén a la célula. La membrana celular es una estructura de doble capa lipídica presente en todas las células que se encarga de regular el intercambio de sustancias entre el interior y el exterior de la célula.
+
+[Citoplasma]{.underline}
+
+:   El citoplasma es el espacio que se encuentra entre el núcleo y la membrana celular de la célula eucariota y que contiene numerosos orgánulos y estructuras celulares.
+
+[Citoesqueleto]{.underline}
+
+:   El citoesqueleto es un conjunto de filamentos proteicos que se extienden por todo el citoplasma de la célula eucariota y que se encargan de proporcionar soporte estructural a la célula, así como de permitir la movilidad celular y la división celular.
+
+[Mitocondria]{.underline}
+
+:   Las mitocondrias son orgánulos encargados de la producción de energía en la célula. Las mitocondrias contienen su propio material genético y se encargan de la síntesis de ATP, la principal fuente de energía de la célula.
+
+[Aparato de Golgi]{.underline}
+
+:   El aparato de Golgi es un orgánulo formado por una serie de sacos membranosos apilados que se encargan de modificar, clasificar y empacar las proteínas y lípidos sintetizados por la célula.
+
+## Relación con la computadora
+
+[Núcleo - Procesador]{.underline}
+
+:   El procesador de la computadora puede considerarse como el "núcleo" de la misma, ya que es el encargado de controlar y ejecutar las operaciones lógicas y matemáticas.
+
+[Membrana nuclear - Gabinete]{.underline}
+
+:   La carcasa de la computadora puede asemejarse a la membrana nuclear, ya que protege los componentes internos de la misma.
+
+[Nucleolo - GPU]{.underline}
+
+:   El microprocesador o CPU de la computadora puede ser comparado con el nucleolo, ya que se encarga de procesar la información y ejecutar las instrucciones.
+
+[Ribosomas - Dispositivos de entrada y salida]{.underline}
+
+:   Los dispositivos de entrada y salida de la computadora, como el teclado y el mouse, pueden ser considerados como los "ribosomas" de la misma, ya que permiten la entrada y salida de información.
+
+[Retículo endoplásmico - Motherboard]{.underline}
+
+:   La motherboard de la computadora puede asemejarse al retículo endoplásmico, ya que es una estructura que conecta y coordina los diferentes componentes de la computadora.
+
+[Pared celular - Monitor]{.underline}
+
+:   El monitor de la computadora puede considerarse como la "pared celular" o "membrana celular" de la misma, ya que permite visualizar y controlar la información que se encuentra dentro de la computadora.
+
+[Citoplasma - espacio físico del gabinete]{.underline}
+
+:   El espacio físico dentro del gabinete de la computadora donde se encuentran los diferentes componentes puede compararse con el citoplasma, ya que es el espacio que se encuentra entre el núcleo y la membrana celular.
+
+[Citoesqueleto - Gabinete]{.underline}
+
+:   El gabinete de la computadora puede considerarse como el citoesqueleto, ya que proporciona soporte estructural y permite la movilidad de los diferentes componentes.
+
+[Mitocondria - Luz]{.underline}
+
+:   La fuente de alimentación de la computadora puede compararse con las mitocondrias, ya que se encarga de suministrar energía a la computadora.
+
+[Aparato de Golgi - Disco duro]{.underline}
+
+:   El disco duro o unidad de almacenamiento de la computadora puede asemejarse al aparato de Golgi, ya que es el encargado de almacenar, clasificar y organizar la información y los programas.
+
+| Organelo Celular               | Parte de la Computadora                       | Justificación                                                                                                                                                                                                                                                                                  |
+|--------------------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Núcleo                         | Procesador                                    | Ambos son el "cerebro" de la célula/computadora, controlando y ejecutando operaciones lógicas y matemáticas.                                                                                                                                                                                   |
+| Membrana Nuclear               | Carcasa/Gabinete                              | La carcasa/gabinete protege los componentes internos de la computadora, de la misma manera que la membrana nuclear protege el núcleo y el material genético de la célula.                                                                                                                      |
+| Nucleolo                       | CPU/Microprocesador                           | Ambos procesan información y ejecutan instrucciones importantes para el funcionamiento de la célula/computadora.                                                                                                                                                                               |
+| Ribosomas                      | Dispositivos de entrada/salida                | Los ribosomas traducen la información genética para la síntesis de proteínas, mientras que los dispositivos de entrada/salida permiten la entrada y salida de información en la computadora.                                                                                                   |
+| Retículo Endoplásmico          | Placa madre/Motherboard                       | El retículo endoplásmico es una red de membranas que conectan y coordinan los diferentes organelos de la célula, de manera similar a como la placa madre/motherboard conecta y coordina los diferentes componentes de la computadora.                                                          |
+| Pared Celular/Membrana Celular | Monitor                                       | El monitor de la computadora es la interfaz entre el usuario y la computadora, permitiendo visualizar y controlar la información en la pantalla, de la misma manera que la pared celular/membrana celular de la célula controla el flujo de materiales dentro y fuera de la célula.            |
+| Citoplasma                     | Espacio dentro del gabinete de la computadora | El citoplasma es el espacio dentro de la célula donde se encuentran los diferentes organelos, de la misma manera que el espacio dentro del gabinete de la computadora donde se encuentran los diferentes componentes.                                                                          |
+| Citoesqueleto                  | Chasis/estructura interna de la computadora   | El citoesqueleto es la red de proteínas que proporciona soporte estructural y permite la movilidad de los diferentes organelos en la célula, de manera similar a como el chasis/estructura interna de la computadora proporciona soporte y permite la movilidad de los diferentes componentes. |
+| Mitocondria                    | Fuente de alimentación de la computadora      | Las mitocondrias son los organelos encargados de suministrar energía a la célula, de manera similar a como la fuente de alimentación de la computadora suministra energía a la misma.                                                                                                          |
+| Aparato de Golgi               | Disco duro/Unidad de almacenamiento           | El aparato de Golgi es el organelo encargado de almacenar, clasificar y organizar la información y los materiales dentro de la célula, de manera similar a como el disco duro/unidad de almacenamiento de la computadora almacena, clasifica y organiza la información y los programas.        |
+| Lisosomas                      | Programas antivirus y de limpieza             | Los lisosomas son organelos encargados de la degradación de desechos y materia                                                                                                                                                                                                                 |
+
+## Referencias
+
+Genetics Glossary. (2023). Genome. Recuperado de <https://www.genome.gov/genetics-glossary>
+
+National Human Genome Research Institute. (2023). *Genome.* Recuperado de [https://www.genome.gov/es/genetics-glossary/Organelo#:\~:text=Un%20organelo%20u%20orgánulo%20es%20una%20estructura%20específica%20dentro%20de,cumplen%20dentro%20de%20una%20célula.](https://www.genome.gov/es/genetics-glossary/Organelo#:~:text=Un%20organelo%20u%20orgánulo%20es%20una%20estructura%20específica%20dentro%20de,cumplen%20dentro%20de%20una%20célula.)

@@ -1,0 +1,164 @@
+---
+title: "Ejercicios en R"
+author: "Diego Espejo, Daniel Esparza & Pablo Heredia"
+date: "2023-04-14"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+```{r}
+library(stringr)
+```
+
+1.  Escribe una función que genere una secuencia aleatoria de DNA de tamaño "n"
+
+```{r}
+crearSecuenciaADN <- function(n) {
+  secuencia <- sample(c('A', 'T', 'C', 'G'), n, replace = TRUE)
+  return(paste(secuencia, collapse = ''))
+}
+
+s <- crearSecuenciaADN(1000)
+s
+```
+
+2.  Codifica una función que calcula el tamaño de una secuencia de DNA.
+
+```{r}
+sizeADN <- function(s) {
+  return(nchar(s))
+}
+
+sizeADN(s)
+```
+
+3.  Crea una función que recibe una secuencia de DNA e imprime el porcentaje de cada base\
+    en la secuencia.
+
+```{r}
+percentageBaseADN <- function(s) {
+  n <- nchar(s)
+  percentage <- c(A = (str_count(s, 'A') / n) * 100, T = (str_count(s, 'T')/n) * 100, C = (str_count(s, 'C')/n)*100, G = (str_count(s, 'G')/n)*100)
+  return(percentage)
+}
+percentageBaseADN(s)
+```
+
+4.  Programa una función que transcribe DNA a RNA, usa la siguiente tabla:
+
+```{r}
+DNAtoRNA <- function(s) {
+  return(str_replace_all(s, 'T', 'U'))
+}
+
+DNAtoRNA(s)
+```
+
+5.  Crea una función que traduce una secuencia de RNA a una secuencia de proteínas.
+
+    ![](images/Screenshot%202023-04-14%20at%2012.16.47.png){width="680"}
+
+```{r}
+#sample <- "AUGCUCUGA"
+s2 <- DNAtoRNA(s)
+n <- nchar(s2)
+
+proteinInRNA <- function(s) {
+  acidCodes <- c("Ile","Ile","Ile", "Leu","Leu","Leu","Leu","Leu","Leu", "Val","Val","Val","Val", "Phe","Phe", "Met", "Cys","Cys", "Ala","Ala","Ala","Ala", "Gly","Gly","Gly","Gly", "Pro","Pro","Pro","Pro", "Thr","Thr","Thr","Thr", "Ser","Ser","Ser","Ser","Ser","Ser", "Tyr","Tyr", "Trp", "Glu","Glu", "Asn","Asn", "His","His", "Glu","Glu", "Asp","Asp", "Lys","Lys", "Arg","Arg","Arg","Arg","Arg","Arg", "Stop","Stop","Stop")
+  
+  names(acidCodes) <- c("AUU","AUC","AUA", "CUU","CUC","CUA","CUG","UUA","UUG","GUU","GUC","GUA","GUG", "UUU","UUC", "AUG", "UGU","UGC", "GCU","GCC","GCA","GCG", "GGU","GGC","GGA","GGG", "CCU","CCC","CCA","CCG","ACU","ACC","ACA","ACG", "UCU","UCC","UCA","UCG","AGU","AGC", "UAU","UAC", "UGG", "CAA","CAG", "AAU","AAC", "CAU","CAC", "GAA","GAG", "GAU","GAC", "AAA","AAG", "CGU","CGC","CGA","CGG","AGA","AGG", "UAA","UAG","UGA")
+  
+  tercias <- c()
+
+  for (i in seq(1, n, by=3)) {
+    tercia <- substring(s, i, i+2)
+    tercias <- c(tercias, tercia)
+  }
+  
+  start <- grep("AUG", tercias)
+  end1 <- grep("UGA", tercias)
+  end2 <- grep("UAA", tercias)
+  end3 <- grep("UAG", tercias)
+  
+  end <- c(end1, end2, end3)
+  
+  
+  proteina <- acidCodes[tercias[start[1]:end[1]]] # Imprime la primera proteína encontrada
+  
+  return(paste(proteina, collapse = ''))
+}
+
+proteinInRNA(s2)
+```
+
+6.  Para representar una molécula de ADN de doble hebra basta con escribir la secuencia de una de sus hebras. Consideremos, por ejemplo, la secuencia "TGCGATAC". Como no se indica lo contrario, se asume que la secuencia está escrita en sentido 5'→3' y, por lo tanto, se trata de la hebra directa (forward strand):\
+    **- Hebra directa: 5'-TGCGATAC-3'**
+
+    Análogamente, si decido escribir esta misma secuencia empezando por el extremo 3' se\
+    obtiene la hebra inversa (reverse strand):\
+    **- Hebra inversa: 3'-CATAGCGT-5'**
+
+    Escribe una función que recibe una hebra directa y regresa la hebra inversa:
+
+```{r}
+inverseStrand <- function(s) {
+  return(paste(rev(strsplit(s, NULL)[[1]]), collapse=''))
+}
+
+inverseStrand("5'-TGCGATAN-3'")
+```
+
+7.  Normalmente se representa la molécula escribiendo primero la hebra directa y debajo la hebra complementaria (complementary strand). La hebra complementaria se escribe en sentido 3'→5' para que las bases de ambas hebras queden emparejadas:\
+    a.  Hebra directa: 5'-TGCGATAC-3'\
+    b.  Hebra complementaria: 3'-ACGCTATG-5'.\
+        Escribe una función qué recibe una hebra directa y obtiene la hebra complementaria:
+
+```{r}
+# Metódo 1
+compStrand1 <- function(s) {
+  return(chartr("ATCG", "TAGC", s))
+}
+
+# Método 2
+compStrand2 <- function(s) {
+  comp <- ""
+  for (i in 1:nchar(s)) {
+    letter <- substr(s, i, i)
+    if (letter == "A") {
+      comp <- paste(comp, "T", sep = "")
+    } else if (letter == "T") {
+      comp <- paste(comp, "A", sep = "")
+    } else if (letter == "C") {
+      comp <- paste(comp, "G", sep = "")
+    } else if (letter == "G") {
+      comp <- paste(comp, "C", sep = "")
+    }
+    else {
+      comp <- paste(comp, letter, sep = "")
+    }
+  }
+  return(comp)
+}
+
+compStrand1("5'-TGCNATAC-3'")
+compStrand2("5'-TGCGATAC-3'")
+```
+
+8.  Si escribimos la secuencia de la hebra complementaria en sentido inverso (5'→3') se obtiene la complementaria inversa (reverse-complement):\
+    a.  Hebra complementaria: 3'-ACGCTATG-5'\
+    b.  Hebra complementaria inversa: 5'-GTATCGCA-3'\
+        Escribe la función en R para obtener la hebra complementaria inversa, desde una hebra complementaria:
+
+```{r}
+compInvStrand <- function(s) {
+  return(paste(rev(strsplit(s, NULL)[[1]]), collapse=''))
+}
+
+compInvStrand(compStrand1("5'-ATGCTTGACGCTCAAACCATCGC-3'"))
+```
+
+9.  Prueba cada una de las funciones y recuerda que las secuencias pueden contener caracteres\
+    especiales donde aparte de ATGC, en ADN, y AUGC, en ARN, pudimos ver algunos guiones\
+    (omitidos) y N (desconocido) nucleótido.

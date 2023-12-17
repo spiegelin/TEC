@@ -1,0 +1,26 @@
+---
+title: "Ejercicios básicos en R"
+author: "Diego Espejo"
+date: "2023-03-31"
+output: html_document
+---
+
+```{r}
+# Crear un vector con edades aleatorias
+edades <- c(20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 32, 33, 34, 39, 40, 10, 14, 18)
+
+# Crear el histograma y almacenarlo en una variable llamada "histograma"
+histograma <- hist(edades, breaks = 6, col = "lightblue", xlab = "Edad", main = "Histograma de edades")
+
+# Agregar la línea de la media en color rojo
+abline(v = mean(edades), col = "red", lwd = 2)
+
+# Agregar la línea de la desviación estándar en color verde
+abline(v = mean(edades) + sd(edades), col = "green", lwd = 2)
+
+# Agregar la línea de la desviación estándar en color verde (línea punteada)
+abline(v = mean(edades) - sd(edades), col = "green", lty = 2, lwd = 2)
+
+```
+
+

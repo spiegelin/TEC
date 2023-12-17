@@ -1,0 +1,265 @@
+---
+title: "Actividad colaborativa en clase | Base de datos de virus de NCBI"
+author: "Diego Espejo, Daniel Esparza & Pablo Heredia"
+date: "2023-04-22"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library("seqinr")
+library("stringr")
+```
+
+## Zika virus
+
+```{r}
+zikaVirusFile <- read.fasta("/Users/spiegel/Documents/TEC/zika_sequence.fasta")
+zikaVirus <- zikaVirusFile[[1]]
+paste(zikaVirus, collapse='')
+```
+
+1.  ¿Cuál es el tamaño?
+
+    ```{r}
+    length(zikaVirus)
+    ```
+
+2.  ¿Cúal es la composición de nucleótidos?
+
+    ```{r}
+    (count(zikaVirus, 1) / length(zikaVirus) * 100)
+    ```
+
+3.  ¿Cuál es el contenido de GC del virus?
+
+    ```{r}
+    (count(zikaVirus, 2)[10] / length(zikaVirus) * 100)
+    ```
+
+4.  Crear una función para obtener la secuencia en complementaria, ejemplo:\
+    Virus original: agttgttagt ctacgtggac cgacaagaac\
+    Complementaria: tcaacaatca gatgcacctg gctgttcttg
+
+    ```{r}
+    complementaria <- function(sequence) {
+      return(paste(chartr("atcg", "tagc", sequence), collapse=''))
+    }
+
+    complementaria(zikaVirus)
+    ```
+
+5.  Crear una gráfica de resumen para comparar la composición de nucleótidos:
+
+    ```{r}
+    barplot(table(zikaVirus), col = 1:4)
+    ```
+
+## SARS coronavirus
+
+```{r}
+coronaVirusFile <- read.fasta("/Users/spiegel/Documents/TEC/corona_sequence.fasta")
+coronaVirus <- coronaVirusFile[[1]]
+paste(coronaVirus, collapse='')
+```
+
+1.  ¿Cuál es el tamaño?
+
+    ```{r}
+    length(coronaVirus)
+    ```
+
+2.  ¿Cúal es la composición de nucleótidos?
+
+    ```{r}
+    (count(coronaVirus, 1) / length(coronaVirus) * 100)
+    ```
+
+3.  ¿Cuál es el contenido de GC?
+
+    ```{r}
+    (count(coronaVirus, 2)[10] / length(coronaVirus) * 100)
+    ```
+
+4.  Crear una función para obtener la secuencia en complementaria, ejemplo:\
+    Virus original: agttgttagt ctacgtggac cgacaagaac\
+    Complementaria: tcaacaatca gatgcacctg gctgttcttg
+
+    ```{r}
+    complementaria(coronaVirus)
+    ```
+
+5.  Crear una gráfica de resumen para comparar la composición de nucleótidos:
+
+    ```{r}
+    barplot(table(coronaVirus), col = 1:4)
+    ```
+
+## Wuhan seafood market pneumonia virus isolate Wuhan-Hu-1
+
+```{r}
+wuhanVirusFile <- read.fasta("/Users/spiegel/Documents/TEC/wuhan_sequence.fasta")
+wuhanVirus <- wuhanVirusFile[[1]]
+paste(wuhanVirus, collapse='')
+```
+
+1.  ¿Cuál es el tamaño de la secuencia?
+
+    ```{r}
+    length(wuhanVirus)
+    ```
+
+2.  ¿Cúal es la composición de nucleótidos?
+
+    ```{r}
+    (count(wuhanVirus, 1) / length(wuhanVirus) * 100)
+    ```
+
+3.  ¿Cuál es el contenido de GC?
+
+    ```{r}
+    (count(wuhanVirus, 2)[10] / length(wuhanVirus) * 100)
+    ```
+
+4.  Crear una función para obtener la secuencia en complementaria, ejemplo:\
+    Virus original: agttgttagt ctacgtggac cgacaagaac\
+    Complementaria: tcaacaatca gatgcacctg gctgttcttg
+
+    ```{r}
+    complementaria(wuhanVirus)
+    ```
+
+5.  Crear una gráfica de resumen para comparar la composición de nucleótidos:
+
+    ```{r}
+    barplot(table(wuhanVirus), col = 1:4)
+    ```
+
+## Middle East respiratory syndrome coronavirus
+
+```{r}
+coronaVirusFile <- read.fasta("/Users/spiegel/Documents/TEC/corona_east_sequence.fasta")
+coronaVirus <- zikaVirusFile[[1]]
+paste(coronaVirus, collapse='')
+```
+
+1.  ¿Cuál es el tamaño de la secuencia?
+
+    ```{r}
+    length(wuhanVirus)
+    ```
+
+2.  ¿Cúal es la composición de nucleótidos?
+
+    ```{r}
+    (count(wuhanVirus, 1) / length(wuhanVirus) * 100)
+    ```
+
+3.  ¿Cuál es el contenido de GC?
+
+    ```{r}
+    (count(wuhanVirus, 2)[10] / length(wuhanVirus) * 100)
+    ```
+
+4.  Crear una función para obtener la secuencia en complementaria, ejemplo:\
+    Virus original: agttgttagt ctacgtggac cgacaagaac\
+    Complementaria: tcaacaatca gatgcacctg gctgttcttg
+
+    ```{r}
+    complementaria(wuhanVirus)
+    ```
+
+5.  Crear una gráfica de resumen para comparar la composición de nucleótidos:
+
+    ```{r}
+    barplot(table(wuhanVirus), col = 1:4)
+    ```
+
+## Dengue virus 1
+
+```{r}
+coronaVirusFile <- read.fasta("/Users/spiegel/Documents/TEC/corona_sequence.fasta")
+coronaVirus <- zikaVirusFile[[1]]
+paste(coronaVirus, collapse='')
+```
+
+1.  ¿Cuál es el tamaño de la secuencia?
+
+    ```{r}
+    length(wuhanVirus)
+    ```
+
+2.  ¿Cúal es la composición de nucleótidos?
+
+    ```{r}
+    (count(wuhanVirus, 1) / length(wuhanVirus) * 100)
+    ```
+
+3.  ¿Cuál es el contenido de GC?
+
+    ```{r}
+    (count(wuhanVirus, 2)[10] / length(wuhanVirus) * 100)
+    ```
+
+4.  Crear una función para obtener la secuencia en complementaria, ejemplo:\
+    Virus original: agttgttagt ctacgtggac cgacaagaac\
+    Complementaria: tcaacaatca gatgcacctg gctgttcttg
+
+    ```{r}
+    complementaria(wuhanVirus)
+    ```
+
+5.  Crear una gráfica de resumen para comparar la composición de nucleótidos:
+
+    ```{r}
+    barplot(table(wuhanVirus), col = 1:4)
+    ```
+
+## H1N1 - México 2009
+
+![](images/Screenshot%202023-04-22%20at%2013.18.30-01.png)
+
+```{r}
+coronaVirusFile <- read.fasta("/Users/spiegel/Documents/TEC/corona_sequence.fasta")
+coronaVirus <- zikaVirusFile[[1]]
+paste(coronaVirus, collapse='')
+```
+
+1.  ¿Cuál es el tamaño de la secuencia?
+
+    ```{r}
+    length(wuhanVirus)
+    ```
+
+2.  ¿Cúal es la composición de nucleótidos?
+
+    ```{r}
+    (count(wuhanVirus, 1) / length(wuhanVirus) * 100)
+    ```
+
+3.  ¿Cuál es el contenido de GC?
+
+    ```{r}
+    (count(wuhanVirus, 2)[10] / length(wuhanVirus) * 100)
+    ```
+
+4.  Crear una función para obtener la secuencia en complementaria, ejemplo:\
+    Virus original: agttgttagt ctacgtggac cgacaagaac\
+    Complementaria: tcaacaatca gatgcacctg gctgttcttg
+
+    ```{r}
+    complementaria(wuhanVirus)
+    ```
+
+5.  Crear una gráfica de resumen para comparar la composición de nucleótidos:
+
+    ```{r}
+    barplot(table(wuhanVirus), col = 1:4)
+    ```
+
+### Comparación 5 Viruses
+
+```{r}
+
+```

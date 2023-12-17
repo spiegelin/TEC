@@ -1,0 +1,137 @@
+---
+title: "Actividad en clase | Ejercicios básicos de R"
+author: "Diego Espejo & Daniel Esparza"
+date: "2023-03-31"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+# Ejercicios Básicos de R
+
+### Instrucciones
+
+1.  Crear un vector x con los datos 10, 11, 13, -1, 6, 3
+
+    ```{r}
+    x <- c(10, 11, 13, -1, 6, 3)
+    x
+    ```
+
+2.  Calcula estadísticas simples de x. Calcular la media, la desviación estándar y la varianza. Crear un objeto (vector) con el nombre est.x en el que guardar los 3 estadísticos.
+
+    ```{r}
+    media <- mean(x)
+    media
+    sd <- sd(x)
+    sd
+    var <- var(x)
+    var
+
+    est.x <- c(media, sd, var)
+    ```
+
+3.   Escribe un programa R para crear una secuencia de números del 20 al 50 y encuentre la media de los números del 20 al 60 y la suma de los números del 51 al 91. Tip: utiliza las funciones de R.
+
+    ```{r}
+    20:50
+    mean(20:60)
+    sum(51:91)
+    ```
+
+4.   Escribe un programa R para crear un vector que contenga 10 valores enteros aleatorios entre -100 y +50. Revisa la función sample (<https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/sample>)
+
+    ```{r}
+    rand <- sample(-100:50, 10)
+    rand
+    ```
+
+5.   Escribe un programa R para obtener los primeros 10 números de Fibonacci (<https://www.ecured.cu/N%C3%BAmeros_de_Fibonacci>).
+
+    Como código base tienes:
+
+    fufb \<- numeric(10)
+
+    fb[1] \<- fb[2] \<- 1
+
+    Practica usando un for para terminar tu código.
+
+    ```{r}
+    fb <- numeric(10)
+    fb[1] <- fb[2] <- 1
+
+    count <- 1
+    for (value in fb) {
+      if (value != 1) {
+        fb[count] <- fb[count-1] + fb[count - 2]
+      }
+      count <- count + 1
+    }
+    fb
+    ```
+
+6.   Escribe un programa R para encontrar el valor máximo y mínimo de un vector dado. Debes probar con:
+
+    a.  c(10, 20, 30, 4, 50, -60)
+
+    b.  c(10, 20, 30, 4, 50, -60)
+
+    ```{r}
+    a <- c(10, 20, 30, 4, 50, -60)
+    b <- c(10, 20, 30, 4, 50, 100) 
+
+    max(a)
+    min(a)
+
+    max(b)
+    min(b)
+    ```
+
+7.  Escribe una función R para multiplicar dos vectores de tipo entero y longitud n, de la misma longitud ambos.
+
+    a.  multiplica(c(10, 20), c(3,4)) \# salida: [1] 30 80
+
+    ```{r}
+    v1 <- c(10, 20)
+    v2 <- c(3, 4)
+
+    v1 * v2
+    ```
+
+8.   Escribe una función R para contar el valor específico en un vector dado.
+
+    a.  cuenta(c(10, 20, 10, 7, 24,7, 5),7) \# salid  a: [1] 2
+
+    ```{r}
+    vector <- c(10, 20, 10, 7, 24,7, 5)
+
+    cuenta <- function(vector, num) {
+      count <- 0
+      for (element in vector) {
+        if (element == num) {
+          count <- count + 1
+        }
+      }
+      return(count)
+    }
+
+    cuenta(vector, 7)
+    ```
+
+9.  Escribe una función en R para extraer cada enésimo elemento de un vector dado. Un prueba es:
+
+    a.  v \<- 1:100
+
+    b.  enesimo(v, 5)
+
+    c.  \# Salida: [1]  1 6 11 16 21 26 31 36 41 46 51 56 61 66 71 76 81 86 91 96
+
+    ```{r}
+    v <- 1:100
+
+    enesimo <- function(v, paso) {
+      elementos <- seq(from = 1, to = length(v), by = paso)
+      return(v[elementos])
+    }
+    enesimo(v, 5)
+    ```

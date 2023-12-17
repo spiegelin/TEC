@@ -1,0 +1,49 @@
+---
+title: "Clase_ggplot2"
+author: "Diego Espejo"
+date: "2023-04-25"
+output: html_document
+---
+
+```{r}
+library("ggplot2")
+library("tidyverse")
+library("svglite")
+```
+
+```{r}
+p <- ggplot(iris)
+p <- p + aes(x = Petal.Length, y = Petal.Width, colour = Species)
+summary(p)
+p <- p + geom_point() 
+p <- p + geom_line()
+geom_line()
+p
+             
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, colour = Species)) + geom_point()
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, colour = Species)) + geom_point() + geom_smooth()
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, colour = Species)) + geom_point()
+
+#ggsave("mi_grafico.png")
+
+#ggsave("mi_grafico.png", plot = p, width = 10, height = 5)
+
+#ggsave("mi_grafico.pdf", plot = p, dpi = 600)
+
+#ggsave("Ruta")
+
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width)) + geom_point() + geom_smooth() + facet_grid(~ Species) + theme_bw()
+
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Species)) +
+  geom_point(size = 1) +
+  geom_smooth() +
+  facet_grid(~ Species) +
+  theme_bw() +
+  xlab("Longitud del pétalo") +
+  ylab("Ancho del pétalo") +
+  ggtitle("Relación entre longitud y ancho del pétalo para diferentes especies de iris") +
+  scale_color_manual(values = c("red", "blue", "green"), name = "") +
+  theme(legend.position = "bottom")
+
+
+```
