@@ -5,9 +5,9 @@ This repository contains a collection of activities and projects completed durin
 ## Table of Contents
 
 1. [About](#about)
-2. [1 Semester](#1semester)
-3. [2 Semester](#2semester)
-4. [3 Semester](#3semester)
+2. [1 Semester](#1-semester)
+3. [2 Semester](#2-semester)
+4. [3 Semester](#3-semester)
 5. [How to Use](#how-to-use)
 6. [Contact](#contact)
 
@@ -16,44 +16,44 @@ This repository contains a collection of activities and projects completed durin
 I am a Computer Science student at Tecnológico de Monterrey, and this repository serves as a portfolio of my academic journey. Here, you will find a variety of projects and activities that demonstrate my skills and growth in the field of computer science.
 
 
-## 1 semester
+## 1 Semester
 
-### Engineering and science modeling
+- Engineering and science modeling
 
-### Computational modeling of movement
+- Computational modeling of movement
 
-### Computational modeling applying conservation laws
+- Computational modeling applying conservation laws
 
-### Introduction to Data Science
+- Introduction to Data Science
 
-### Introduction to Data Science
+- Introduction to Data Science
 
-### Computational thinking for engineering
+- Computational thinking for engineering
 
-### Introduction to OOP
+- Introduction to OOP
 
 
-## 2 semester
+## 2 Semester
 
-### Computational biology analysis
+- Computational biology analysis
 
-### Computational modeling of electrical systems
+- Computational modeling of electrical systems
 
-### Computational modeling of electromagnetic systems
+- Computational modeling of electromagnetic systems
 
-### Engineering Modeling with Computational Mathematics
+- Engineering Modeling with Computational Mathematics
 
-### OOP
+- OOP
 
-## 3 semester
+## 3 Semester
 
-### Data structures and algorithms
+- Data structures and algorithms
 
-### Implementation of internet of things
+- Implementation of internet of things
 
-### Operating Systems
+- Operating Systems
 
-### Modeling of minimal systems and computational architectures (Introduction to Assembly)
+- Modeling of minimal systems and computational architectures (Introduction to Assembly)
 
 
 ## How to Use
