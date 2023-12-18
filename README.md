@@ -26,8 +26,6 @@ I am a Computer Science student at Tecnológico de Monterrey, and this repositor
 
 - Introduction to Data Science
 
-- Introduction to Data Science
-
 - Computational thinking for engineering
 
 - Introduction to OOP
